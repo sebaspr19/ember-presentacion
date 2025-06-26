@@ -1,0 +1,445 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF3EF;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Estilos de las Diapositivas (Slides) */
+.diapositiva {
+    width: 100%;
+    min-height: 100vh;
+    border: 10px solid #D8572A;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #FFF3EF;
+    color: #5F1F0F;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor de contenido para cada diapositiva */
+.slide-content {
+    max-width: 1200px; 
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Contenedor para el diseño de dos columnas (texto + imagen) */
+.slide-body {
+    display: flex;
+    flex-direction: row; /* Texto a la izquierda, imagen a la derecha */
+    width: 120%;
+    gap: 10px; /* Aumenta el espacio entre el texto y la imagen */
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+    justify-content: center;
+	flex-wrap: wrap; 
+}
+
+/* Ajuste para diapositivas con texto ancho (ej. presupuesto) */
+.slide-body.full-width-text {
+    justify-content: center;
+    align-items: flex-start;
+}
+.slide-body.full-width-text .slide-text {
+    flex: none;
+    width: 80%; /* Le da más espacio al texto en la diapositiva de presupuesto */
+    max-width: 900px;
+    align-items: center;
+    text-align: center;
+}
+
+/* Contenedor del texto en la columna izquierda */
+.slide-text {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el texto */
+    align-items: flex-start;
+}
+
+/* Contenedor de la imagen en la columna derecha */
+.slide-image {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.slide-image img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+}
+	
+.slide-image1 img {
+    height: auto;
+    display: block;
+}
+/* Estilos de Tipografía */
+h1, h2, h3 {
+    text-align: center; /* Centra todos los títulos */
+    color: #5F1F0F;
+    margin-bottom: 25px;
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: #333333;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    text-align: left;
+}
+
+a {
+    color: #D8572A;
+    text-decoration: none;
+}
+a:hover {
+    color: #FFCE63;
+}
+
+/* Estilos de las listas con guiones */
+.styled-list {
+    list-style-type: none; /* Elimina los puntos por defecto */
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.styled-list li {
+    font-size: 2.5em;
+    line-height: 1.8;
+    color: #333333;
+    position: relative;
+    padding-left: 20px; /* Espacio para el guion */
+    margin-bottom: 10px;
+    text-align: left; /* Alinea el texto de la lista a la izquierda */
+}
+.styled-list li::before {
+    content: '-'; /* Usa un guion como marcador */
+    position: absolute;
+    left: 0;
+    color: #D8572A; /* Color del guion */
+    font-weight: bold;
+}
+	
+.styled-list1 li {
+    font-size: 1.5em;
+    line-height: 1.8;
+    color: #333333;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    text-align: left;	
+}	
+.budget-columns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+	margin-top: 40px;
+    gap: 150px; /* Espacio entre las dos columnas */
+    width: 100%;
+    max-width: 1330px; /* Ancho máximo para el contenedor de columnas */
+    text-align: left; /* Alinea el texto a la izquierda dentro de las columnas */
+}
+
+.budget-column {
+    flex: 1; /* Permite que las columnas se expandan para ocupar el espacio */
+    min-width: 350px; /* Ancho mínimo para cada columna */
+}
+
+/* Ajuste para los títulos dentro de las columnas */
+.budget-column h2 {
+    text-align: left;
+	margin-top: 60px;
+    margin-bottom: 15px;
+}
+
+/* Ajuste para que la lista no se rompa */
+.budget-column .styled-list {
+    max-width: none; /* Elimina el límite de ancho para que se ajuste a la columna */
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+.budget-column .styled-list li {
+    font-size: 1.5em; /* Tamaño de fuente más apropiado para las columnas */
+}
+	
+/* Estilos de la Galería de Imágenes (p03, p04) */
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; /* Reduce el espacio entre imágenes */
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Centra las imágenes verticalmente */
+}
+
+
+/* Tamaños de imagen para lograr simetría en la diapositiva 3 */
+	
+.image-gallery .horizontal-img {
+    width: 700px; /* Ajusta el ancho para la imagen horizontal */
+    height: 42vh; /* Ajusta la altura */
+	border: 5px solid #FFCE63;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+/* Nuevos tamaños de imagen para la diapositiva "Primeros Bocetos" (p04) */
+.image-gallery .vertical-boceto-img {
+    width: 400px;
+    height: 650px;
+    object-fit: contain;
+}
+.image-gallery .horizontal-boceto-img {
+    width: 333px;
+    height: 593px;
+    object-fit: contain;
+}
+
+/* Estilo para una sola imagen en una diapositiva */
+.single-img {
+    max-width: 80%;
+    height: auto;
+    border: 5px solid #FFCE63;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+
+/* Estilos de Navegación */
+nav {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    background-color: #5F010C;
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px 10px;
+    margin: 2px 0;
+    font-size: 1.1em;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #FFCE63;
+    color: #5F010C;
+}
+
+/* Estilos de la Diapositiva de Introducción (p01) */
+.diapositiva#p01 {
+    background-color: #5F010C;
+    color: #FFFFFF;
+    justify-content: space-around;
+}
+
+.diapositiva#p01 .logo {
+    width: auto;
+    max-height: 20vh;
+    margin-top: -79px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+.diapositiva#p01 h1, .diapositiva#p01 h2, .diapositiva#p01 h3, .diapositiva#p01 p, .diapositiva#p01 a {
+    color: #FFFFFF;
+}
+
+.diapositiva#p01 a:hover {
+    color: #FFCE63;
+}
+
+/* Botón de Llamada a la Acción (CTA) */
+.cta-button {
+    display: inline-block;
+    background-color: #D8572A;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+}
+
+.cta-button:hover {
+    background-color: #FFCE63;
+    color: #5F010C;
+    transform: translateY(-3px);
+}
+.cta-button1 {
+    display: block;
+    background-color: #D8572A;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+	margin: 30px, auto, 0, auto;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+}
+
+.cta-button1:hover {
+    background-color: #FFCE63;
+    color: #5F010C;
+    transform: translateY(-3px);
+}	
+
+/* Animaciones CSS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-on-scroll {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Oculto por defecto */
+    animation-play-state: paused; /* Pausar la animación inicialmente */
+}
+
+/* Diseño Responsivo (Media Queries) */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        width: 100%;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        transform: none;
+        padding: 5px;
+        justify-content: space-around;
+        border-radius: 0;
+    }
+     .cta-button1 {
+        font-size: 2rem; /* Reduce el tamaño de la fuente */
+        padding: 10px 20px; /* Reduce el relleno para que el botón sea más compacto */
+    }  
+    nav a {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    .diapositiva {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    p, .styled-list li {
+        font-size: 1em;
+    }
+
+    .slide-body {
+        flex-direction: column; /* Apila texto e imagen verticalmente */
+        align-items: center; /* Centra los elementos apilados */
+        text-align: center; /* Centra el texto */
+    }
+
+    .slide-text {
+        padding: 0; /* Elimina el padding extra en móvil */
+        align-items: center; /* Centra el texto en móvil */
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .image-gallery img,
+    .image-gallery .horizontal-img,
+    .image-gallery .vertical-boceto-img,
+    .image-gallery .horizontal-boceto-img {
+        width: 80%; /* Las imágenes ocupan más ancho en móvil */
+        height: auto; /* Mantienen su relación de aspecto */
+    }
+
+    .diapositiva#p01 .logo {
+        max-height: 15vh;
+    }
+
+    .cta-button {
+        font-size: 1.2em;
+        padding: 12px 25px;
+    }
+
+    .budget-columns-container {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .budget-column {
+        min-width: unset;
+        width: 77%;
+    }
+    .budget-column h2 {
+        text-align: center;
+    }
+}	
